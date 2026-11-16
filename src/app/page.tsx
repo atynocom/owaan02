@@ -1,69 +1,142 @@
-import Image from "next/image";
+import React from "react";
+import { AnnouncementBar } from "@/components/layout/announcement-bar";
+import { Navbar } from "@/components/layout/navbar";
+import { HeroSection } from "@/components/home/hero/hero-section";
+import { TrustSection } from "@/components/home/trust-section";
+import { ProductCategories } from "@/components/home/product-categories";
+import { FeaturedProducts } from "@/components/home/featured-products";
+import { InfrastructureDiagram } from "@/components/home/infrastructure-diagram";
+import { BenefitsSection } from "@/components/home/benefits-section";
+import { DeveloperSection } from "@/components/home/developer-section";
+import { PricingPreview } from "@/components/home/pricing-preview";
+import { UseCasesSection } from "@/components/home/use-cases-section";
+import { FAQSection } from "@/components/home/faq-section";
+import { FinalCTASection } from "@/components/home/final-cta-section";
+import { Footer } from "@/components/layout/footer";
+import { FAQ_DATA } from "@/data/faq";
 
-export default function Home() {
+export default function HomePage() {
+  // Structured Multi-Schema Graph for Full SEO & GEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://owaan.com/#organization",
+        name: "OWAAN Cloud Infrastructure",
+        alternateName: "اووان - زیرساخت دیجیتال",
+        url: "https://owaan.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://owaan.com/favicon.ico",
+        },
+        description:
+          "پلتفرم پیشرفته زیرساخت ابری، Smart DNS Anycast، شبکه توزیع محتوا (CDN) و پایگاه‌داده‌های توزیع‌شده با پایداری ۹۹.۹۹٪.",
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://owaan.com/#website",
+        url: "https://owaan.com",
+        name: "OWAAN",
+        inLanguage: "fa-IR",
+        publisher: {
+          "@id": "https://owaan.com/#organization",
+        },
+      },
+      {
+        "@type": "Product",
+        "@id": "https://owaan.com/#product-anycast-dns",
+        name: "Smart DNS Anycast",
+        description: "مسیریابی هوشمند ترافیک نام دامنه با فناوری Anycast جهانی در بیش از ۳۲۰ نقطه تبادل ترافیک.",
+        brand: {
+          "@id": "https://owaan.com/#organization",
+        },
+      },
+      {
+        "@type": "Product",
+        "@id": "https://owaan.com/#product-edge-cdn",
+        name: "Enterprise Edge CDN",
+        description: "شبکه توزیع محتوا با پشتیبانی از HTTP/3 بر بستر QUIC، فشرده‌سازی Brotli و تخلیه آنی کش.",
+        brand: {
+          "@id": "https://owaan.com/#organization",
+        },
+      },
+      {
+        "@type": "Product",
+        "@id": "https://owaan.com/#product-cloud-db",
+        name: "Managed Cloud Databases",
+        description: "پایگاه‌های داده ابری مدیریت‌شده PostgreSQL و Redis با تکثیر بلادرنگ چندمنطقه‌ای.",
+        brand: {
+          "@id": "https://owaan.com/#organization",
+        },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://owaan.com/#faq",
+        mainEntity: FAQ_DATA.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen flex flex-col bg-background text-foreground font-sans transition-colors duration-200">
+      {/* Multi-Schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      {/* Section 01: Announcement Bar */}
+      <AnnouncementBar />
+
+      {/* Main Header & Navigation */}
+      <Navbar />
+
+      {/* Main Content Area: Sections 02 through 12 */}
+      <main className="flex-1 flex flex-col">
+        {/* Section 02: Hero Section */}
+        <HeroSection />
+
+        {/* Section 03: Trust & Credibility */}
+        <TrustSection />
+
+        {/* Section 04: Product Categories */}
+        <ProductCategories />
+
+        {/* Section 05: Featured Products */}
+        <FeaturedProducts />
+
+        {/* Section 06: Infrastructure Architecture Diagram */}
+        <InfrastructureDiagram />
+
+        {/* Section 07: Why Choose Us */}
+        <BenefitsSection />
+
+        {/* Section 08: Developer Experience */}
+        <DeveloperSection />
+
+        {/* Section 09: Pricing Preview */}
+        <PricingPreview />
+
+        {/* Section 10: Use Cases */}
+        <UseCasesSection />
+
+        {/* Section 11: FAQ Section */}
+        <FAQSection />
+
+        {/* Section 12: Final CTA */}
+        <FinalCTASection />
       </main>
+
+      {/* Section 13: Footer */}
+      <Footer />
     </div>
   );
 }
