@@ -4,7 +4,7 @@ import React from "react";
 
 export function HeroCustomerLogos() {
   return (
-    <div className="w-full pt-16 sm:pt-20 lg:pt-24 pb-8 border-t border-neutral-200/50 dark:border-white/[0.08]">
+    <div className="w-full pt-8 sm:pt-10 lg:pt-12 pb-6 sm:pb-8 border-t border-neutral-200/50 dark:border-white/[0.08]">
       <div className="max-w-[1340px] mx-auto px-4 sm:px-6">
         <div className="flex flex-wrap items-center justify-center lg:justify-between gap-8 sm:gap-12 lg:gap-8 text-neutral-800 dark:text-white opacity-70 transition-opacity">
           {/* Meta */}
