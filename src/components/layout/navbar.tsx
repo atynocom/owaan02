@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown, Menu, X, ArrowLeft, Shield, Server, Database, Globe } from "lucide-react";
 import { NAVIGATION_ITEMS } from "@/data/navigation";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { OwaanLogo } from "@/components/ui/owan-logo";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,25 +50,18 @@ export function Navbar() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
         {/* Start: Brand Logo & Desktop Navigation */}
         <div className="flex items-center gap-8">
-          {/* Architectural Brand Logo */}
+          {/* Official OWAAN Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus:outline-none"
-            aria-label="صفحه اصلی پلتفرم زیرساخت دیجیتال"
+            className="flex items-center gap-3 group focus:outline-none"
+            aria-label="صفحه اصلی پلتفرم زیرساخت دیجیتال اووان - OWAAN"
           >
-            {/* Minimalist Monochrome Isometric Glyph */}
-            <div className="w-8 h-8 rounded-lg bg-neutral-900 dark:bg-neutral-100 flex items-center justify-center text-white dark:text-black transition-transform group-hover:scale-105">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                <polyline points="2 17 12 22 22 17" />
-                <polyline points="2 12 12 17 22 12" />
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-base tracking-tight text-neutral-900 dark:text-neutral-100 font-sans">
-                اووان <span className="text-xs font-normal text-neutral-500 font-mono">OWAAN</span>
+            <OwaanLogo className="h-7 sm:h-8 w-auto transition-transform group-hover:scale-[1.02]" />
+            <div className="flex flex-col border-s border-neutral-300 dark:border-neutral-800 ps-2.5">
+              <span className="font-bold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 font-sans leading-none">
+                اووان
               </span>
-              <span className="text-[10px] text-neutral-600 dark:text-neutral-400 -mt-1 hidden sm:block">
+              <span className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5 hidden sm:block font-sans">
                 زیرساخت ابری توزیع‌شده
               </span>
             </div>

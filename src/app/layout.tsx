@@ -41,7 +41,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "OWAAN Cloud Infrastructure" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/images/owan-sign.svg",
+    apple: "/images/owan-sign.svg",
   },
   openGraph: {
     title: "پلتفرم زیرساخت دیجیتال و شبکه ابری توزیع‌شده | OWAAN",
