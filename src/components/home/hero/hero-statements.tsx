@@ -57,21 +57,21 @@ export function HeroStatements() {
                 onBlur={() => setActiveId(null)}
                 aria-expanded={isActive}
                 aria-controls={`desc-${item.id}`}
-                className={`w-full text-start cursor-pointer bg-transparent border-none p-0 outline-none transition-all duration-200 select-none group focus-visible:ring-1 focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600 rounded-sm ${
+                className={`w-full text-start cursor-pointer bg-transparent border-none p-2.5 -mx-2.5 rounded-xl outline-none transition-all duration-200 select-none group focus-visible:ring-1 focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600 hover:bg-neutral-100/70 dark:hover:bg-white/[0.04] ${
                   isActive
-                    ? "opacity-100"
+                    ? "opacity-100 bg-neutral-100/80 dark:bg-white/[0.05]"
                     : isAnyActive
-                    ? "opacity-45 hover:opacity-75"
-                    : "opacity-80 hover:opacity-100"
+                    ? "opacity-60 hover:opacity-100"
+                    : "opacity-100"
                 }`}
               >
                 <div className="flex flex-col">
                   {/* Statement Title: short, clean line visible by default */}
                   <span
-                    className={`text-[15px] sm:text-[16px] lg:text-[17px] transition-colors duration-200 ${
+                    className={`text-[16px] sm:text-[17px] lg:text-[18px] transition-colors duration-200 ${
                       isActive
-                        ? "font-semibold text-neutral-950 dark:text-white"
-                        : "font-normal text-neutral-700 dark:text-[#a1a1a1]"
+                        ? "font-bold text-black dark:text-white"
+                        : "font-medium text-neutral-950 dark:text-[#a1a1a1] group-hover:text-black dark:group-hover:text-white"
                     }`}
                   >
                     {item.title}
@@ -82,12 +82,12 @@ export function HeroStatements() {
                     id={`desc-${item.id}`}
                     className={`grid transition-[grid-template-rows,opacity,margin] duration-250 ease-out motion-reduce:transition-none ${
                       isActive
-                        ? "grid-rows-[1fr] opacity-100 mt-1.5"
+                        ? "grid-rows-[1fr] opacity-100 mt-2"
                         : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="text-[13px] sm:text-[14px] leading-relaxed text-neutral-600 dark:text-neutral-400 font-normal">
+                      <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-neutral-800 dark:text-neutral-300 font-normal">
                         {item.description}
                       </p>
                     </div>

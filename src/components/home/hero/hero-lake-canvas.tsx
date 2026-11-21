@@ -231,7 +231,6 @@ export function HeroLakeCanvas() {
         vec2 reflUV = p + N.xz * 1.45;
         vec2 q = abs(reflUV);
         float squircleDist = pow(pow(q.x, 3.2) + pow(q.y, 3.2), 1.0 / 3.2);
-        float outerShadow = 1.0 - smoothstep(0.65, 1.15, squircleDist) * 0.45;
         float innerORefl = smoothstep(0.22, 0.30, squircleDist) * (1.0 - smoothstep(0.32, 0.44, squircleDist));
         float coreGlowRefl = exp(-distCenter * 1.15) * 0.28;
 
@@ -240,7 +239,6 @@ export function HeroLakeCanvas() {
         float cursorGlow = exp(-length(p - uCursor) * 1.3) * 0.16;
 
         float luminance = 0.012;
-        luminance *= outerShadow;
         luminance += specMain + specRim;
         luminance += innerORefl * 0.55;
         luminance += coreGlowRefl;
@@ -275,12 +273,12 @@ export function HeroLakeCanvas() {
     waterMesh.renderOrder = 2;
     scene.add(waterMesh);
 
-    // 2. Submerged Bathymetric Contours
+    // 2. Submerged Bathymetric Contours (Spacious, leaving center sign area pristine)
     const bathymetryGroup = new THREE.Group();
     bathymetryGroup.position.y = -0.82;
     scene.add(bathymetryGroup);
 
-    const ringRadii = [1.45, 2.3, 3.25, 4.3, 5.45, 6.7];
+    const ringRadii = [2.7, 3.8, 4.9, 6.0, 7.3];
     ringRadii.forEach((r, idx) => {
       const pts: THREE.Vector3[] = [];
       const segments = 128;
@@ -306,7 +304,7 @@ export function HeroLakeCanvas() {
       bathymetryGroup.add(line);
     });
 
-    // 3. Submerged Ecosystem Nodes (260 particles)
+    // 3. Submerged Ecosystem Nodes (260 particles orbiting outside center core)
     const ECO_NODE_COUNT = 260;
     const ecoNodes: Array<{
       radius: number;
@@ -323,7 +321,7 @@ export function HeroLakeCanvas() {
 
     for (let i = 0; i < ECO_NODE_COUNT; i++) {
       const t = Math.pow(Math.random(), 0.78);
-      const radius = 1.15 + t * 6.3;
+      const radius = 2.4 + t * 5.2;
       const angle = Math.random() * Math.PI * 2;
       const depth = -0.68 - Math.random() * 0.85;
       const speed = (0.08 + Math.random() * 0.12) * (2.2 / (radius + 0.8)) * (i % 5 === 0 ? -0.6 : 1.0);
@@ -583,7 +581,10 @@ export function HeroLakeCanvas() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
       {/* 3D WebGL Lake Canvas (Captures pointer moves & clicks seamlessly) */}
-      <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-auto" />
+      <div
+        ref={containerRef}
+        className="absolute inset-0 z-0 pointer-events-auto transition-opacity duration-300 dark:opacity-100 opacity-25"
+      />
 
       {/* Seamless Obsidian Vignette (Lake edges fade gracefully into pure black in dark mode) */}
       <div
@@ -591,24 +592,14 @@ export function HeroLakeCanvas() {
         className="absolute inset-0 pointer-events-none z-[1] hidden dark:block"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, transparent 32%, rgba(0, 0, 0, 0.72) 70%, #000000 94%)",
-        }}
-      />
-
-      {/* Light Mode Vignette (Lake edges fade gracefully into pure white in light mode) */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none z-[1] block dark:hidden"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, transparent 32%, rgba(255, 255, 255, 0.85) 70%, #ffffff 96%)",
+            "radial-gradient(circle at 50% 50%, transparent 42%, rgba(0, 0, 0, 0.65) 74%, #000000 95%)",
         }}
       />
 
       {/* Architectural Hairline Grid with Radial Fade */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 pointer-events-none z-[1] opacity-60"
+        className="absolute inset-0 pointer-events-none z-[1] opacity-50 dark:opacity-60"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(120, 120, 120, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(120, 120, 120, 0.08) 1px, transparent 1px)",

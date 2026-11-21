@@ -51,7 +51,6 @@ export function OwaanSign({
           fill="url(#owan-squircle-body)"
           stroke="url(#owan-squircle-rim)"
           strokeWidth="1.4"
-          className="drop-shadow-[0_12px_28px_rgba(0,0,0,0.85)]"
         />
 
         {/* 2. Pure White "O" Letterform (Hollow Aperture) */}
@@ -59,7 +58,6 @@ export function OwaanSign({
           d="M 62 27 C 87 27 97 37 97 62 C 97 87 87 97 62 97 C 37 97 27 87 27 62 C 27 37 37 27 62 27 Z M 62 43 C 50 43 43 50 43 62 C 43 74 50 81 62 81 C 74 81 81 74 81 62 C 81 50 74 43 62 43 Z"
           fill="#FFFFFF"
           fillRule="evenodd"
-          className="drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
         />
       </svg>
     );
