@@ -57,21 +57,21 @@ export function HeroStatements() {
                 onBlur={() => setActiveId(null)}
                 aria-expanded={isActive}
                 aria-controls={`desc-${item.id}`}
-                className={`w-full text-start cursor-pointer bg-transparent border-none p-2.5 -mx-2.5 rounded-xl outline-none transition-all duration-200 select-none group focus-visible:ring-1 focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600 hover:bg-neutral-100/70 dark:hover:bg-white/[0.04] ${
+                className={`w-full text-start cursor-pointer bg-transparent border-none p-3 -mx-3 rounded-xl outline-none transition-all duration-200 select-none group focus-visible:ring-1 focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-500 hover:bg-neutral-100/70 dark:hover:bg-white/[0.08] ${
                   isActive
-                    ? "opacity-100 bg-neutral-100/80 dark:bg-white/[0.05]"
+                    ? "opacity-100 bg-neutral-100/80 dark:bg-white/[0.09]"
                     : isAnyActive
-                    ? "opacity-60 hover:opacity-100"
+                    ? "opacity-70 hover:opacity-100"
                     : "opacity-100"
                 }`}
               >
                 <div className="flex flex-col">
-                  {/* Statement Title: short, clean line visible by default */}
+                  {/* Statement Title: short, crisp, bright white in dark mode */}
                   <span
                     className={`text-[16px] sm:text-[17px] lg:text-[18px] transition-colors duration-200 ${
                       isActive
                         ? "font-bold text-black dark:text-white"
-                        : "font-medium text-neutral-950 dark:text-[#a1a1a1] group-hover:text-black dark:group-hover:text-white"
+                        : "font-medium text-neutral-950 dark:text-white/95 group-hover:text-black dark:group-hover:text-white"
                     }`}
                   >
                     {item.title}
@@ -87,7 +87,7 @@ export function HeroStatements() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-neutral-800 dark:text-neutral-300 font-normal">
+                      <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-neutral-800 dark:text-zinc-200 font-normal">
                         {item.description}
                       </p>
                     </div>
