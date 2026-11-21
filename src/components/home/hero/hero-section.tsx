@@ -5,10 +5,19 @@ import { HeroHeadline } from "./hero-headline";
 import { HeroAwanSymbol } from "./hero-awan-symbol";
 import { HeroStatements } from "./hero-statements";
 import { HeroCustomerLogos } from "./hero-customer-logos";
+import { HeroLakeCanvas } from "./hero-lake-canvas";
 
 export function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden bg-white dark:bg-black min-h-[calc(100svh-64px)] flex flex-col justify-between select-none pt-6 sm:pt-10 lg:pt-14 transition-colors">
+      {/* 
+        3D Living Lake Ecosystem WebGL Canvas (Inspired by Lake Ovan - دریاچه اوان)
+        - Harmonic obsidian water waves and cursor wake displacement
+        - Click-triggered acoustic shockwaves
+        - Submerged bathymetric contour rings and 260 dynamic ecosystem nodes
+      */}
+      <HeroLakeCanvas />
+
       {/* 
         Vercel-Inspired Minimal Main Canvas:
         - Strict 3-zone horizontal composition with exact proportions (34% / 32% / 34%).
