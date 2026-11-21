@@ -18,7 +18,7 @@ export function Footer() {
               <OwaanLogo className="h-7 sm:h-8 w-auto transition-transform group-hover:scale-[1.02]" />
               <div className="flex flex-col border-s border-neutral-300 dark:border-neutral-800 ps-2.5">
                 <span className="font-bold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 font-sans leading-none">
-                  اووان
+                  اُوان
                 </span>
                 <span className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5 font-sans">
                   زیرساخت ابری توزیع‌شده
@@ -66,7 +66,7 @@ export function Footer() {
         {/* Bottom Bar: Copyright, Legal, Theme Toggle */}
         <div className="pt-8 border-t border-neutral-200 dark:border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
-            <span>© ۲۰۲۶ اووان. تمامی حقوق محفوظ است.</span>
+            <span>© ۲۰۲۶ اُوان. تمامی حقوق محفوظ است.</span>
             <span className="hidden sm:inline">•</span>
             <Link href="#privacy" className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
               حریم خصوصی داده‌ها

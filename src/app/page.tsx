@@ -24,7 +24,7 @@ export default function HomePage() {
         "@type": "Organization",
         "@id": "https://owaan.com/#organization",
         name: "OWAAN Cloud Infrastructure",
-        alternateName: "اووان - زیرساخت دیجیتال",
+        alternateName: "اُوان - زیرساخت دیجیتال",
         url: "https://owaan.com",
         logo: {
           "@type": "ImageObject",

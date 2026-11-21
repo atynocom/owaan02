@@ -15,8 +15,8 @@ export function HeroAwanSymbol() {
       <button
         type="button"
         tabIndex={0}
-        aria-label="ساین و نماد رسمی اووان - OWAAN"
-        title="ساین و نماد رسمی اووان"
+        aria-label="ساین و نماد رسمی اُوان - OWAAN"
+        title="ساین و نماد رسمی اُوان"
         className="relative z-30 cursor-pointer p-0 bg-transparent border-none outline-none focus-visible:ring-1 focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600 rounded-3xl transition-transform duration-300 active:scale-[0.98] hover:scale-[1.03]"
       >
         <OwaanSign

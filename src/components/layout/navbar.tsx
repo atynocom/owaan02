@@ -54,12 +54,12 @@ export function Navbar() {
           <Link
             href="/"
             className="flex items-center gap-3 group focus:outline-none"
-            aria-label="صفحه اصلی پلتفرم زیرساخت دیجیتال اووان - OWAAN"
+            aria-label="صفحه اصلی پلتفرم زیرساخت دیجیتال اُوان - OWAAN"
           >
             <OwaanLogo className="h-7 sm:h-8 w-auto transition-transform group-hover:scale-[1.02]" />
             <div className="flex flex-col border-s border-neutral-300 dark:border-neutral-800 ps-2.5">
               <span className="font-bold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 font-sans leading-none">
-                اووان
+                اُوان
               </span>
               <span className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5 hidden sm:block font-sans">
                 زیرساخت ابری توزیع‌شده

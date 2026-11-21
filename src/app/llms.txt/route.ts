@@ -5,7 +5,7 @@ export async function GET() {
 > پلتفرم جامع زیرساخت دیجیتال، شبکه Anycast DNS، شبکه توزیع محتوا (CDN)، پایگاه‌داده‌های ابری توزیع‌شده و پردازش در لبه شبکه.
 
 ## درباره پلتفرم
-- نام سامانه: اووان (OWAAN Cloud Infrastructure)
+- نام سامانه: اُوان (OWAAN Cloud Infrastructure)
 - آدرس وب‌سایت: https://owaan.com
 - زبان اصلی: فارسی (Persian / Farsi) با پشتیبانی کامل از اصطلاحات فنی بین‌المللی
 - سبک طراحی: مونوکروم ناب (Pure Monochrome) الهام‌گرفته از نظم مینیمال Linear و ساختار مهندسی Vercel
